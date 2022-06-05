@@ -29,13 +29,13 @@ void	creating_philos(t_philo *philo, char **av)
 	int		idx;
 	t_table	*table;
 
+	table = malloc(sizeof(t_table));
 	table->start_time = ft_get_time(0);
 	table->nbr_philo = ft_atoi(av[1]);
 	table->time_die = ft_atoi(av[2]);
 	table->time_eat = ft_atoi(av[3]);
 	table->time_sleep = ft_atoi(av[4]);
 	idx = 0;
-	table = malloc(sizeof(t_table));
 	ft_mutex_init(philo, table);
 	while (idx < table->nbr_philo)
 	{

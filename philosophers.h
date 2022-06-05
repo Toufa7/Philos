@@ -25,6 +25,7 @@ typedef struct s_table
 	int				time_die;
 	int				time_eat;
 	int				time_sleep;
+	int				how_much_eat;
 	unsigned long	start_time;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	state_msg;
@@ -33,7 +34,6 @@ typedef struct s_table
 typedef struct s_philo
 {
 	int				id;
-	int				how_much_eat;
 	pthread_t		thread;
 	t_table			*table;
 }	t_philo;
