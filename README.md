@@ -1,4 +1,19 @@
-# Philosophers 
+# Philosophers (One of the classic problems in the synchronization)
+
+
+# The Problem Statement
+
+Consider five philosophers who spend their lives thinking and eating , thoses philosophers share a circular table surrounded by five chairs, each belonging to one philosopher. In the center of the table is a bowl of rice, and the table is laid with 5 single chopsticks
+
+
+
+When a philosopher thinks, he does not interact with her colleagues and from time to time a philosopher gets hungry so he tries to pick up the two chopsticks that are closest to him (the chopsticks that are between him and his left and right neighbors)
+
+
+A philosopher may pick up only one chopstick at a time He cannot pick up a chopstick that is already in the hand of a neighbor , When a hungry philosopher has both his chopsticks at the same time, he eats without releasing his chopsticks so When he is finished eating, he puts down both of his chopsticks and starts thinking again.
+
+Let's use the given figure as areference to understand the problem exactly.
+
 
 Arguments passed to our program: 
 
@@ -147,3 +162,20 @@ So once a thread has been detached it's no longer possible to use pthread_join t
 
 A mutex is a variable of the type pthread_mutex_t
 Before it can be used, a mutex must always be initialized. For a statically allocated mutex;
+
+
+# Conclusion
+
+The design of the problem was to illustrate the challenges of avoiding deadlock, a deadlockstate of a system is a state in which no progress of system can be made . Consider a proposal where each philosopher is instructed to behave as follows:
+
+- The philosopher is instructed to hold the right fork think till the left fork is avaliable when it's grabe it
+
+- Eat since the two forks are avaliable
+
+- When the time to eat is reached then release the two forks
+
+- Go to sleep within to time mentioned in the arguments
+
+- When he wake up he start thinking and wait until the 2 forks avalibale and repeat from the beginning
+
+While thes process if a philosopher didn’t start eat since the beginning of their last meal or the beginning of the simulation, they die,

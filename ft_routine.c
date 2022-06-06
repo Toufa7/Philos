@@ -19,4 +19,6 @@ void	ft_routine(t_philo *philo)
 	ft_release_fork(philo);
 	ft_sleep(philo);
 	ft_think(philo);
+	if (ft_is_dead(philo) == 1)
+		exit(0);
 }

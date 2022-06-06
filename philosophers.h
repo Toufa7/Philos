@@ -26,6 +26,7 @@ typedef struct s_table
 	int				time_eat;
 	int				time_sleep;
 	int				how_much_eat;
+	int				last_time_eat;
 	unsigned long	start_time;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	state_msg;
@@ -50,5 +51,6 @@ void			ft_routine(t_philo *philo);
 void			ft_usleep(unsigned long time);
 void			ft_sleep(t_philo *philo);
 void			creating_philos(t_philo *philo, char **av);
+int				ft_is_dead(t_philo *philo);
 
 #endif 
