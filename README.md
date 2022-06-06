@@ -26,6 +26,14 @@ A philosopher may pick up only one chopstick at a time He cannot pick up a chops
 Let's use the given figure as areference to understand the problem exactly.
 
 
+# Why do we need mutex ?
+
+The use of mutex lock or unlock is firstly to protect the shared ressources , and to ensure that there's an update of the shared varible 
+
+Example :
+
+Imagine that there are some tickets to sell. We can simulate a case where many people buy the tickets at the same time: each person is a thread to buy tickets, so Obviously we need to use the mutex to protect the tickets because it is the shared resource.
+
 Arguments passed to our program: 
 
     ./Philosophers number_of_philosophers time_to_die time_to_eat time_to_sleep 
