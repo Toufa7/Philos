@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <unistd.h>
+# include <stdbool.h>
 # include <sys/time.h>
 
 typedef struct s_table
@@ -50,7 +51,8 @@ void			ft_think(t_philo *philo);
 void			ft_routine(t_philo *philo);
 void			ft_usleep(unsigned long time);
 void			ft_sleep(t_philo *philo);
-void			creating_philos(t_philo *philo, char **av);
+void			creating_philos(t_philo *philo, const char **av);
 int				ft_is_dead(t_philo *philo);
+int				ft_check_args(int ac, const char **av);
 
 #endif 

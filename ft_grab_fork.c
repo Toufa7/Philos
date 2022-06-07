@@ -11,6 +11,11 @@
 /* ************************************************************************** */
 
 #include "philosophers.h"
+/**
+ * ! by using mutex_unlock we can safely use shared resource
+ ? 
+ !
+*/
 
 void	ft_grab_fork(t_philo *philo)
 {

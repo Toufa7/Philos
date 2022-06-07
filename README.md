@@ -1,16 +1,5 @@
 # Philosophers (One of the classic problems in the synchronization)
 
-# Real Life Example of Threads
-
--   You are typing a paragraph on MS word. But in background one more thread running and checking your spelling mistakes. As soon as you do a typo the other thread notifies you about the typo.. And makes your life easy.
-
-
--   I think online shopping is a good example of multi-threading. Here, a number of people are simultaneously shopping on the same website like multiple threads of same program
-
-
--   Online bus/anything ticket booking : here many users trying to book available ticket at same time (ex : tatkal booking ) , here application needs to handle different threads (diff users request to server ) , if tickets sold out/not available then rest users will get correct response as not available to book .
-
--   Lets take an example of bank ,let’s suppose we have an online banking system, where people can log in and access their account information. Whenever someone logs in to their account online, they receive a separate and unique thread so that different bank account holders can access the central system simultaneously.
 
 # The Problem Statement
 
@@ -25,14 +14,6 @@ A philosopher may pick up only one chopstick at a time He cannot pick up a chops
 
 Let's use the given figure as areference to understand the problem exactly.
 
-
-# Why do we need mutex ?
-
-The use of mutex lock or unlock is firstly to protect the shared ressources , and to ensure that there's an update of the shared varible 
-
-Example :
-
-Imagine that there are some tickets to sell. We can simulate a case where many people buy the tickets at the same time: each person is a thread to buy tickets, so Obviously we need to use the mutex to protect the tickets because it is the shared resource.
 
 Arguments passed to our program: 
 

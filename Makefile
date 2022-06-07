@@ -29,6 +29,7 @@ FUNCTIONS	=	creating_philos.c\
 				ft_sleep.c\
 				ft_think.c\
 				ft_is_dead.c\
+				ft_check_args.c\
 
 OBJECTS	=	$(FUNCTIONS:.c=.o)
 

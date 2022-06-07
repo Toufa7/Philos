@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otoufah <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 14:22:00 by otoufah           #+#    #+#             */
-/*   Updated: 2022/06/05 14:22:01 by otoufah          ###   ########.fr       */
+/*   Created: 2022/06/06 18:14:12 by otoufah           #+#    #+#             */
+/*   Updated: 2022/06/06 18:14:13 by otoufah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	main(int ac, const char **av)
+int	ft_check_args(int ac, const char **av)
 {
-	t_philo	*philo;
+	int i;
+	int j;
 
-	if (ft_check_args(ac, av) == 1)
-		return (0);
-	philo = malloc(sizeof(t_philo) * ft_atoi(av[1]));
-	creating_philos(philo, av);
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			if ((av[i][j] < '0' || av[i][j] > '9') )
+			{
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

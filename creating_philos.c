@@ -17,14 +17,14 @@ void	*philo_routine(void *philos)
 	t_philo	*philo;
 
 	philo = (t_philo *)philos;
-	while (1)
+	while (true)
 	{
 		ft_routine(philo);
 	}
 	return (NULL);
 }
 
-void	creating_philos(t_philo *philo, char **av)
+void	creating_philos(t_philo *philo, const char **av)
 {
 	int		idx;
 	t_table	*table;
