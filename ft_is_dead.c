@@ -15,19 +15,21 @@
 int	ft_is_dead(t_philo *philo)
 {
 	int	diffrence;
+	int	i;
 
-	diffrence = ft_get_time(philo->table->start_time) - philo->table->last_time_eat;
-	printf("The Diffrence between last time eat and Now -> %d\n", diffrence);
-	if (diffrence > philo->table->time_die)
+	i = 0;
+	while (i < philo->table->nbr_philo)
 	{
-		pthread_mutex_lock(&philo->table->state_msg);
-		printf("Philo %d is Dead\n", philo->id);
-		return (1);
-		pthread_mutex_unlock(&philo->table->state_msg);
+		diffrence = ft_get_time(philo[i].table->start_time) - philo[i].last_time_eat;
+		if (diffrence >= philo->table->time_die && !philo[i].is_eating)
+		{
+			pthread_mutex_lock(&philo->table->state_msg);
+			printf("%ld %d is dead\n", ft_get_time(philo->table->start_time), philo->id);
+			return (1);
+		}
+		i++;
+		if (i == philo->table->nbr_philo)
+			i = 0;
 	}
-	else
-	{
-		printf("Philo %d still Alive\n", philo->id);
-		return (0);
-	}
+	return (0);
 }

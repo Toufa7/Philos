@@ -12,7 +12,7 @@
 
 NAME	=	philo
 
-FLAGS	=	-Wall -Werror -Wextra -fsanitize=address
+FLAGS	=	-Wall -Werror -Wextra
 
 REMOVE	=	rm -rf
 
@@ -25,7 +25,6 @@ FUNCTIONS	=	creating_philos.c\
 				ft_grab_fork.c\
 				ft_mutex_init.c\
 				ft_release_fork.c\
-				ft_routine.c\
 				ft_sleep.c\
 				ft_think.c\
 				ft_is_dead.c\
