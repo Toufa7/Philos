@@ -12,7 +12,7 @@
 
 NAME	=	philo
 
-FLAGS	=	-Wall -Werror -Wextra
+FLAGS	=	-Wall -Werror -Wextra -g
 
 REMOVE	=	rm -rf
 

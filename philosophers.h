@@ -28,6 +28,7 @@ typedef struct s_table
 	int				time_eat;
 	int				time_sleep;
 	int				how_much_eat;
+	int				eat;
 	unsigned long	start_time;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	state_msg;

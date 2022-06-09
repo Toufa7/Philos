@@ -19,6 +19,8 @@ int	main(int ac, const char **av)
 	if (ft_check_args(ac, av) == 1)
 		return (0);
 	philo = malloc(sizeof(t_philo) * ft_atoi(av[1]));
+	if (ft_atoi(av[1]) == 1)
+		ft_is_dead(philo);
 	creating_philos(philo, av, ac);
 	ft_is_dead(philo);
 }

@@ -12,19 +12,13 @@
 
 #include "philosophers.h"
 
-void	creat_evens(t_philo *philo)
-{	
-}
-
-void	creat_odds(t_philo *philo)
-{
-}
-
 void	*philo_routine(void *philos)
 {
+	int		nbr_eat;
 	t_philo	*philo;
+
 	philo = (t_philo *)philos;
-	int nbr_eat = philo->table->nbr_eat;
+	nbr_eat = philo->table->nbr_eat;
 	while (nbr_eat)
 	{
 		ft_grab_fork(philo);
@@ -48,15 +42,18 @@ void	creating_philos(t_philo *philo, const char **av, int ac)
 	table->time_die = ft_atoi(av[2]);
 	table->time_eat = ft_atoi(av[3]);
 	table->time_sleep = ft_atoi(av[4]);
-	table->nbr_eat = ft_atoi(av[5]);
+	if (av[5])
+		table->nbr_eat = ft_atoi(av[5]);
+	else
+		table->nbr_eat = -1;
 	idx = 0;
 	ft_mutex_init(philo, table);
 	while (idx < table->nbr_philo)
 	{
-		philo[idx].last_time_eat = ft_get_time(0);
 		philo[idx].id = idx + 1;
 		philo[idx].table = table;
 		philo[idx].is_eating = 0;
+		philo[idx].last_time_eat = ft_get_time(0);
 		pthread_create(&philo[idx].thread, NULL, &philo_routine, &philo[idx]);
 		idx += 2;
 	}
@@ -72,10 +69,3 @@ void	creating_philos(t_philo *philo, const char **av, int ac)
 		idx += 2;
 	}
 }
-/*
-idx = 0;
-while (idx < table->nbr_philo)
-{
-	pthread_join(philo[idx].thread, NULL);
-	idx++;
-}*/
