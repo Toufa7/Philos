@@ -14,7 +14,10 @@
 
 void	ft_think(t_philo *philo)
 {
+	unsigned long	thiking_time;
+
+	thiking_time = ft_get_time(philo->table->start_time);
 	pthread_mutex_lock(&philo->table->state_msg);
-	printf("%lu %d is thinking\n", ft_get_time(philo->table->start_time), philo->id);
+	printf("%lu %d is thinking\n", thiking_time, philo->id);
 	pthread_mutex_unlock(&philo->table->state_msg);
 }

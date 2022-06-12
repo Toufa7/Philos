@@ -14,17 +14,18 @@
 
 int	ft_is_dead(t_philo *philo)
 {
-	int	diffrence;
+	int	diff;
 	int	i;
 
 	i = 0;
 	while (i < philo->table->nbr_philo)
 	{
-		diffrence = ft_get_time(philo[i].table->start_time) - philo[i].last_time_eat;
-		if (diffrence >= philo->table->time_die && !philo[i].is_eating)
+		diff = ft_get_time(philo[i].table->start_time) - philo[i].last_time_eat;
+		if (diff >= philo->table->time_die && !philo[i].is_eating)
 		{
 			pthread_mutex_lock(&philo->table->state_msg);
-			printf("%ld %d is dead\n", ft_get_time(philo->table->start_time), philo->id);
+			printf("%ld %d is dead\n",
+				ft_get_time(philo->table->start_time), philo->id);
 			return (1);
 		}
 		i++;

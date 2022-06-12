@@ -31,6 +31,36 @@ void	*philo_routine(void *philos)
 	return (NULL);
 }
 
+void	creating_evens(t_table *table,t_philo *philo)
+{
+	int idx = 0;
+
+	while (idx < table->nbr_philo)
+	{
+		philo[idx].id = idx + 1;
+		philo[idx].table = table;
+		philo[idx].is_eating = 0;
+		philo[idx].last_time_eat = ft_get_time(0);
+		pthread_create(&philo[idx].thread, NULL, &philo_routine, &philo[idx]);
+		idx += 2;
+	}
+}
+
+void	creating_odds(t_table *table,t_philo *philo)
+{
+	int idx = 1;
+
+	while (idx < table->nbr_philo)
+	{
+		philo[idx].id = idx + 1;
+		philo[idx].table = table;
+		philo[idx].is_eating = 0;
+		philo[idx].last_time_eat = ft_get_time(0);
+		pthread_create(&philo[idx].thread, NULL, &philo_routine, &philo[idx]);
+		idx += 2;
+	}
+}
+
 void	creating_philos(t_philo *philo, const char **av, int ac)
 {
 	int		idx;
@@ -48,24 +78,26 @@ void	creating_philos(t_philo *philo, const char **av, int ac)
 		table->nbr_eat = -1;
 	idx = 0;
 	ft_mutex_init(philo, table);
-	while (idx < table->nbr_philo)
-	{
-		philo[idx].id = idx + 1;
-		philo[idx].table = table;
-		philo[idx].is_eating = 0;
-		philo[idx].last_time_eat = ft_get_time(0);
-		pthread_create(&philo[idx].thread, NULL, &philo_routine, &philo[idx]);
-		idx += 2;
-	}
+	creating_evens(table,philo);
+	// while (idx < table->nbr_philo)
+	// {
+	// 	philo[idx].id = idx + 1;
+	// 	philo[idx].table = table;
+	// 	philo[idx].is_eating = 0;
+	// 	philo[idx].last_time_eat = ft_get_time(0);
+	// 	pthread_create(&philo[idx].thread, NULL, &philo_routine, &philo[idx]);
+	// 	idx += 2;
+	// }
 	usleep(300);
-	idx = 1;
-	while (idx < table->nbr_philo)
-	{
-		philo[idx].last_time_eat = ft_get_time(0);
-		philo[idx].id = idx + 1;
-		philo[idx].table = table;
-		philo[idx].is_eating = 0;
-		pthread_create(&philo[idx].thread, NULL, &philo_routine, &philo[idx]);
-		idx += 2;
-	}
+	creating_odds(table,philo);
+	// idx = 1;
+	// while (idx < table->nbr_philo)
+	// {
+	// 	philo[idx].last_time_eat = ft_get_time(0);
+	// 	philo[idx].id = idx + 1;
+	// 	philo[idx].table = table;
+	// 	philo[idx].is_eating = 0;
+	// 	pthread_create(&philo[idx].thread, NULL, &philo_routine, &philo[idx]);
+	// 	idx += 2;
+	// }
 }

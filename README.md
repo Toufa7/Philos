@@ -11,14 +11,14 @@
 
 # The Problem Statement
 
-Consider five philosophers who spend their lives thinking and eating , thoses philosophers share a circular table surrounded by five chairs, each belonging to one philosopher. In the center of the table is a bowl of rice, and the table is laid with 5 single chopsticks
+Consider five philosophers who spend their lives thinking and eating , thoses philosophers share a circular table surrounded by five chairs, each belonging to one philosopher. In the center of the table is a bowl of rice, and the table is laid with 5 single forks
 
 
 
-When a philosopher thinks, he does not interact with her colleagues and from time to time a philosopher gets hungry so he tries to pick up the two chopsticks that are closest to him (the chopsticks that are between him and his left and right neighbors)
+When a philosopher thinks, he does not interact with her colleagues and from time to time a philosopher gets hungry so he tries to pick up the two forks that are closest to him (the forks that are between him and his left and right neighbors)
 
 
-A philosopher may pick up only one chopstick at a time He cannot pick up a chopstick that is already in the hand of a neighbor , When a hungry philosopher has both his chopsticks at the same time, he eats without releasing his chopsticks so When he is finished eating, he puts down both of his chopsticks and starts thinking again.
+A philosopher may pick up only one fork at a time He cannot pick up a fork that is already in the hand of a neighbor , When a hungry philosopher has both his forks at the same time, he eats without releasing his forks so When he is finished eating, he puts down both of his forks and starts thinking again.
 
 Let's use the given figure as areference to understand the problem exactly.
 

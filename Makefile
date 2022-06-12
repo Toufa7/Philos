@@ -12,7 +12,7 @@
 
 NAME	=	philo
 
-FLAGS	=	-Wall -Werror -Wextra -g
+FLAGS	=	-Wall -Werror -Wextra -fsanitize=thread
 
 REMOVE	=	rm -rf
 

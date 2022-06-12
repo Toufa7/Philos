@@ -14,11 +14,14 @@
 
 void	ft_eat(t_philo *philo)
 {
+	unsigned long	time;
+
+	time = ft_get_time(philo->table->start_time);
 	pthread_mutex_lock(&philo->table->state_msg);
-	printf("%lu %d is eating\n", ft_get_time(philo->table->start_time), philo->id);
+	printf("%lu %d is eating\n", time, philo->id);
 	philo->is_eating = 1;
 	pthread_mutex_unlock(&philo->table->state_msg);
-	philo->last_time_eat = ft_get_time(philo->table->start_time);
+	philo->last_time_eat = time;
 	ft_usleep(philo->table->time_eat);
 	philo->is_eating = 0;
 }
